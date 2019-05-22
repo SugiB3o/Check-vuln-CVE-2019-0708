@@ -355,6 +355,10 @@ int scard_enum_devices(uint32 * id, char *optarg);
 void scardSetInfo(uint32 epoch, uint32 device, uint32 id, uint32 bytes_out);
 void scard_reset_state();
 
+/* mst120.c */
+RD_BOOL mst120_check_init();
+void mst120_check();
+
 /* *INDENT-OFF* */
 #ifdef __cplusplus
 }

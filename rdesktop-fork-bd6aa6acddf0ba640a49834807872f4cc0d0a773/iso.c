@@ -317,7 +317,7 @@ iso_connect(char *server, char *username, char *domain, char *password,
 			}
 			/* do not use encryption when using TLS */
 			g_encryption = False;
-			fprintf(stderr, "Connection established using SSL.\n");
+			printf("[+] Connection established using SSL.\n");
 		}
 #ifdef WITH_CREDSSP
 		else if (data == PROTOCOL_HYBRID)

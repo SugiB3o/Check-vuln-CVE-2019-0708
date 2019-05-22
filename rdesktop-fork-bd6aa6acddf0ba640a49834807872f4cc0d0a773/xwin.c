@@ -140,9 +140,9 @@ static RD_BOOL g_compatible_arch;
    binary format. If so, we can avoid an expensive translation.
    Note that this can be true when g_compatible_arch is false,
    e.g.:
-   
+
      RDP(LE) <-> host(BE) <-> X-Server(LE)
-     
+
    ('host' is the machine running rdesktop; the host simply memcpy's
     so its endianess doesn't matter)
  */
@@ -564,7 +564,7 @@ sw_configurenotify_p(Display * display, XEvent * xevent, XPointer arg)
 /* Wait for a ConfigureNotify, with a equal or larger serial, on the
    specified window. The event will be removed from the queue. We
    could use XMaskEvent(StructureNotifyMask), but we would then risk
-   throwing away crucial events like DestroyNotify. 
+   throwing away crucial events like DestroyNotify.
 
    After a ConfigureWindow, according to ICCCM section 4.1.5, we
    should recieve a ConfigureNotify, either a real or synthetic
@@ -1933,8 +1933,8 @@ ui_init(void)
 }
 
 
-/* 
-   Initialize connection specific data, such as session size. 
+/*
+   Initialize connection specific data, such as session size.
  */
 void
 ui_init_connection(void)
@@ -2120,15 +2120,15 @@ ui_create_window(void)
 #ifdef HAVE_XRANDR
 	XSelectInput(g_display, RootWindowOfScreen(g_screen), StructureNotifyMask);
 #endif
-	XMapWindow(g_display, g_wnd);
+	//XMapWindow(g_display, g_wnd);
 
 	/* wait for VisibilityNotify */
-	do
-	{
-		XMaskEvent(g_display, VisibilityChangeMask, &xevent);
-	}
-	while (xevent.type != VisibilityNotify);
-	g_Unobscured = xevent.xvisibility.state == VisibilityUnobscured;
+	//do
+	//{
+		//XMaskEvent(g_display, VisibilityChangeMask, &xevent);
+	//}
+	//while (xevent.type != VisibilityNotify);
+	g_Unobscured = True;//xevent.xvisibility.state == VisibilityUnobscured;
 
 	g_focused = False;
 	g_mouse_in_wnd = False;
