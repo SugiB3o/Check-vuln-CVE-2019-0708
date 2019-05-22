@@ -296,6 +296,13 @@ mcs_recv(uint16 * channel, uint8 * rdpver)
 		{
 			error("expected data, got %d\n", opcode);
 		}
+
+		if (appid ==  MCS_DPUM)
+		{
+			printf("[!] Target is VULNERABLE!!!\n");
+			exit(0);
+		}
+		
 		return NULL;
 	}
 	in_uint8s(s, 2);	/* userid */
