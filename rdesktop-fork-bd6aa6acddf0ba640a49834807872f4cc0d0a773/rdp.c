@@ -688,12 +688,12 @@ rdp_out_general_caps(STREAM s)
 	out_uint16(s, 0);	/* Pad */
 	out_uint16(s, 0);	/* Compression types */
 	out_uint16_le(s, (g_rdp_version >= RDP_V5) ? 0x40d : 0);
-	/* Pad, according to T.128. 0x40d seems to 
+	/* Pad, according to T.128. 0x40d seems to
 	   trigger
-	   the server to start sending RDP5 packets. 
+	   the server to start sending RDP5 packets.
 	   However, the value is 0x1d04 with W2KTSK and
 	   NT4MS. Hmm.. Anyway, thankyou, Microsoft,
-	   for sending such information in a padding 
+	   for sending such information in a padding
 	   field.. */
 	out_uint16(s, 0);	/* Update capability */
 	out_uint16(s, 0);	/* Remote unshare capability */
@@ -1026,17 +1026,21 @@ rdp_process_bitmap_caps(STREAM s)
 	 */
 	if (g_server_depth != depth)
 	{
+		/*
 		warning("Remote desktop does not support colour depth %d; falling back to %d\n",
 			g_server_depth, depth);
 		g_server_depth = depth;
+		*/
 	}
 	if (g_width != width || g_height != height)
 	{
+		/*
 		warning("Remote desktop changed from %dx%d to %dx%d.\n", g_width, g_height,
 			width, height);
 		g_width = width;
 		g_height = height;
 		ui_resize_window();
+		*/
 	}
 }
 
