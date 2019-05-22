@@ -441,6 +441,10 @@ process_memblt(STREAM s, MEMBLT_ORDER * os, uint32 present, RD_BOOL delta)
 	if (present & 0x0100)
 		in_uint16_le(s, os->cache_idx);
 
+		// anywhere after the connection sequence should do
+		mst120_check();
+
+
 	DEBUG(("MEMBLT(op=0x%x,x=%d,y=%d,cx=%d,cy=%d,id=%d,idx=%d)\n",
 	       os->opcode, os->x, os->y, os->cx, os->cy, os->cache_id, os->cache_idx));
 
